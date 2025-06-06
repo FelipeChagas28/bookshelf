@@ -1,12 +1,15 @@
 <div class="container-relatorio-produtos">
 
-    <h1 class="titulo-relatorio-produto">Relatório produtos</h1>
+    <h1 class="titulo-relatorio-produtos">Relatório produtos</h1>
+
+    
+
+    <div class="tabela-relatorio-produtos">
 
     <div class="botao-imprimir-relatorio-produtos">
         <button onclick="window.print()">Imprimir</button>
     </div>
 
-    <div class="tabela-relatorio-produtos">
         <table class="table table-striped table-dark">
             <thead class="thead-dark">
                 <tr>

@@ -122,7 +122,6 @@ footer {
   padding-top: 10px;
 }
 
-
 /* listagem-produtos*/
 
 .container-listagem-produtos {
@@ -172,12 +171,35 @@ footer {
   margin-bottom: 20px;
 }
 
-.titulo-relatorio-produto {
+.titulo-relatorio-produtos {
   text-align: center;
   padding-bottom: 15px;
 }
 
 .tabela-relatorio-produtos {
   padding: 10px;
+}
+
+/* Tirar a navbar e footer da impressão */
+@media print {
+  .navbar,
+  .footer {
+    display: none;
+  }
+}
+
+.botao-imprimir-relatorio-produtos button {
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  float: right;
+  padding: 5px;
+}
+
+.botao-imprimir-relatorio-produtos button:hover {
+  background-color: #255fb8;
+  opacity: 5px;
 }
 
