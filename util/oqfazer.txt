@@ -1,0 +1,16 @@
+Para cada letra do CRUD
+
+1 - Criar o Model
+2 - Criar o controller
+3 - Criar a rota como no index.php
+4 - Criar a view(php)
+
+Create(INSERT)
+    novo() -> get
+        save($dados) Post
+
+Read(SELECT)
+    listarTodos
+    listarPorId($id)
+
+UPDATE(UPDATE)

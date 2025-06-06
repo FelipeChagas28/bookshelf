@@ -1,0 +1,183 @@
+/* Base */
+
+body {
+  background: linear-gradient(1000deg, #976e6e, #d34949);
+}
+
+/*
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(1000deg, #343a40b1, #23303c); 
+  color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.footer-base {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+*/
+
+/* form-usuarios */
+
+.container-cadastro-usuarios {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #f3ebeb;
+  padding-bottom: 20px;
+}
+
+.botao-usuarios {
+  padding-top: 30px;
+}
+
+.titulo-cadastro-usuarios {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* listagem-usuarios */
+
+.listagem-usuarios-botoes {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.listagem-usuarios-adicionar-usuarios {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.container-listagem-usuarios {
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  padding: 30px;
+  color: #fff;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.titulo-usuarios-cadastrados-listagem-usuarios {
+  justify-content: center;
+  display: flex;
+  padding-bottom: 15px;
+}
+
+/* form-vendas */
+
+.container-cadastro-vendas {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titulo-cadastro-form-vendas {
+  text-align: center;
+}
+
+.registro-vendas-botoes {
+  padding-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* form-produtos */
+
+.container-cadastro-produto {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.titulo-cadastro-produto {
+  text-align: center;
+}
+
+.cadastro-produto-botoes {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+
+/* listagem-produtos*/
+
+.container-listagem-produtos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.titulo-listagem-produto {
+  text-align: center;
+}
+
+.listagem-produtos-pesquisa {
+  max-width: 300px;
+}
+
+.botao-pesquisa-adicionar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.listagem-produtos-pesquisa {
+  display: flex;
+}
+
+.cadastro-produtos-descricao {
+  max-height: 0px;
+}
+
+/* relatorio-produtos */
+
+.container-relatorio-produtos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.titulo-relatorio-produto {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.tabela-relatorio-produtos {
+  padding: 10px;
+}
+

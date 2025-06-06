@@ -1,0 +1,19 @@
+{
+    "name": "felipechagas/projeto-bookshelf",
+    "description": "Projeto desenvolvido na aula de programação para internet - Fatec Jahu",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Felipe de Souza Chagas",
+            "email": "felipe.chagas01@fatec.sp.gov.br"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
