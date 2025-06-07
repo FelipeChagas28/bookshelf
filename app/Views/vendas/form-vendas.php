@@ -105,7 +105,7 @@ unset($_SESSION['erros']); ?>
       <label for="input-produto" class="form-label">Produto</label>
       <select id="input-produto" class="form-select" name="produto">
         <option>Selecione...</option>
-        <option <?= isset($dados['livro_id']) && $dados['livro_id'] == "AC" ? "selected" : null ?> value="AC">Acre</option>
+        <option <?= $user['livro_id'] ?>></option>
       </select>
     </div>
     <div class="col-md-4">

@@ -24,11 +24,6 @@ class Usuario
         return $pdo->query($sql)->fetchALL();
     }
 
-
-
-
-
-
     public static function buscarUm($id)
     {
 
@@ -42,11 +37,6 @@ class Usuario
         $stmt->execute();
         return $stmt->fetch();
     }
-
-
-
-
-
 
     //Salva um usuario no BD com os dados da View
     public static function salvar($dados)

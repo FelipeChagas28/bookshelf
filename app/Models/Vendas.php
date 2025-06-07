@@ -19,28 +19,10 @@ class Vendas
         $pdo = Database::conectar();
 
         //monta o script SQL de consulta
-        //$sql = "SELECT * FROM vendas WHERE deleted_at IS NULL";
-
-        $sql = "SELECT  
-                    v.cliente_vendas,
-                    v.cpf_vendas,
-                    p.nome_livro,
-                    v.quantidade,
-                    v.data_venda
-                FROM vendas AS v
-                INNER JOIN produtos p ON v.livro_id = p.id_usuario
-                WHERE v.deleted_at IS NULL;";
-
-
-
+        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL";
         //Retorna o resultado do script SQL
         return $pdo->query($sql)->fetchALL();
     }
-
-
-
-
-
 
     public static function buscarUm($id)
     {
@@ -48,26 +30,13 @@ class Vendas
         //inicia a conexão com o BD
         $pdo = Database::conectar();
 
-        $sql = "SELECT  
-                    v.cliente_vendas,
-                    v.cpf_vendas,
-                    p.nome_livro,
-                    v.quantidade,
-                    v.data_venda
-                FROM vendas AS v
-                INNER JOIN produtos p ON v.livro_id = p.id_usuario
-                WHERE v.deleted_at IS NULL;";
+        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL AND id_usuario = :id";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
     }
-
-
-
-
-
 
     //Salva um usuario no BD com os dados da View
     public static function salvar($dados)
@@ -78,7 +47,7 @@ class Vendas
             //criptografa a senha do usuario antes de salvar 
             //$senha = password_hash($dados['senha'], PASSWORD_BCRYPT);
 
-            $sql = "INSERT INTO usuarios (cliente_vendas, cpf_vendas, data_venda, quantidade, livro_id, forma_pagamento_id) ";
+            $sql = "INSERT INTO vendas (cliente_vendas, cpf_vendas, data_venda, quantidade, livro_id, forma_pagamento_id) ";
             $sql .= "VALUES (:cliente_vendas, :cpf_vendas, :data_venda, :quantidade, :livro_id, :forma_pagamento_id)";
 
             //prepara o SQL para ser inserido no BD limpando códigos maliciosos
@@ -90,8 +59,7 @@ class Vendas
             $stmt->bindParam(':quantidade', $dados['quantidade'], PDO::PARAM_STR);
             $stmt->bindParam(':livro_id', $dados['livro_id'], PDO::PARAM_STR);
             $stmt->bindParam(':forma_pagamento_id', $dados['forma_pagamento_id'], PDO::PARAM_STR);
-
-
+            
             //demais campos...
 
             //executa o SQL no Banco de dados
@@ -110,7 +78,7 @@ class Vendas
         try {
             $pdo = Database::conectar();
 
-            $sql = "UPDATE usuarios SET ";
+            $sql = "UPDATE vendas SET ";
             $sql .= " cliente_vendas = :cliente_vendas,";
             $sql .= " cpf_vendas = :cpf_vendas,";
             $sql .= " data_venda = :data_venda,";
@@ -150,8 +118,7 @@ class Vendas
         $stmt->execute();
     }
 
-    public static function deletarFisico($id)
-    {
+    public static function deletarFisico($id){
         $pdo = Database::conectar();
 
         $sql = "DELETE FROM vendas WHERE id_usuario = :id";

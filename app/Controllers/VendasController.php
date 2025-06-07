@@ -1,12 +1,11 @@
 <?php
-
 //não precisa iniciar a sessão, pois este arquivo vem pelo Index.php
 namespace App\Controllers;
 
 // Importa o Model para ser utilizado
 use App\Models\Vendas;
 
-class vendasController
+class VendasController
 {
 
     // exibe a lista de usuarios
@@ -17,7 +16,7 @@ class vendasController
 
         // exibe o arquivo PHP de lista enviando os usuarios do BD para apresentação
         render('/vendas/listagem-vendas.php', [
-            'title' => 'Listar vendas - Bookshelf',
+            'title' => 'Listar - Bookshelf',
             "vendas" => $vendas
         ]);
     }
@@ -53,7 +52,6 @@ class vendasController
             'quantidade' => filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_SPECIAL_CHARS),
             'livro_id' => filter_input(INPUT_POST, 'livro_id', FILTER_SANITIZE_SPECIAL_CHARS),
             'forma_pagamento_id' => filter_input(INPUT_POST, 'forma_pagamento_id', FILTER_SANITIZE_SPECIAL_CHARS),
-
         ];
 
         //print_r($_POST); exit();
@@ -72,7 +70,7 @@ class vendasController
         } else {
             // Chama o Model passando os dados
             Vendas::salvar($dados);
-            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_vendas'] . ", cadastrada com sucesso!";
+            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_vendas'] . ", cadastrado com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
             header('Location: /vendas');
         }
@@ -101,13 +99,11 @@ class vendasController
             'forma_pagamento_id' => filter_input(INPUT_POST, 'forma_pagamento_id', FILTER_SANITIZE_SPECIAL_CHARS),
         ];
 
-
         //print_r($_POST); exit();
         // Aqui vamos fazer as validações
         $erros = $this->validar($dados);
         $dados['id_usuario'] = $id;
         if (!empty($erros)) {
-
             //Envia os erros para a pagina de cadastro
             $_SESSION['erros'] = $erros;
             // Envia os dados ja informados para serem incluidos.
@@ -120,14 +116,11 @@ class vendasController
             // Chama o Model passando os dados
 
             Vendas::atualizar($dados);
-            $_SESSION['mensagem'] = "vendas para: " . $dados['cliente_vendas'] . ", alterada com sucesso!";
+            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_vendas'] . ", alterado com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
             header('Location: /vendas');
         }
     }
-
-
-
 
     //Apenas coloca a data de exclusão no BD
     public function deletelogico($id)
@@ -150,11 +143,11 @@ class vendasController
     {
         $erros = [];
 
-        //validação do nome do livro
+        //validação do nome
         if (empty($dados['cliente_vendas'])) {
             $erros[] = "O nome do cliente é obrigatório!";
         } else if (strlen($dados['cliente_vendas']) < 3) {
-            $erros[] = "O nome do cliente deve ter pelo menos 3 caracteres.";
+            $erros[] = "O nome deve ter pelo menos 3 caracteres.";
         }
 
         return $erros;

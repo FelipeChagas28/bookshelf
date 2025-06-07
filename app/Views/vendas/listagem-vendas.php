@@ -92,33 +92,141 @@
 
 -->
 
-<div class="container-listagem-vendas">
-  <h1 class="titulo-listagem-vendas">Vendas cadastradas</h1>
+<!-- 
+
+<div class="container-listagem-produtos">
+
+  <h1 class="titulo-listagem-produto">Produtos</h1>
+
+  <div class="botao-pesquisa-adicionar">
+    <div class="listagem-produto-adicionar-produto">
+      <input class="btn btn-primary" type="submit" value="+" onclick="window.location.href='';">
+    </div>
+
+
+    <div class="listagem-produtos-pesquisa">
+      <form class="d-flex" role="search">
+        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+
+  </div>
 
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Estoque</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Teste</th>
+        <td>R$40,00</td>
+        <td>23</td>
+        <td><input class="btn btn-primary" type="button" value="Editar" onclick="window.location.href='';"></td>
+      </tr>
+      <tr>
+        <td>teste</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">04/03/25</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">05/03/25</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">06/03/25</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">07/03/25</th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+-->
+
+<div class="container-listagem-vendas">
+
+  <h1 class="titulo-listagem-vendas">Vendas</h1>
+
+  <div class="botao-pesquisa-adicionar">
+    <div class="listagem-produto-adicionar-vendas">
+      <input class="btn btn-primary" type="submit" value="+" onclick="window.location.href='/vendas/novo';">
+    </div>
+
+
+    <div class="listagem-vendas-pesquisa">
+      <form class="d-flex" role="search">
+        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    
+  </div>
+
+
+  <table class="table table-striped table-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Data</th>
         <th scope="col">Cliente</th>
         <th scope="col">Produto</th>
         <th scope="col">Quantidade</th>
         <th scope="col">Valor</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <!-- Foreach percorre a lista recebida e coloca cada item da lista $usuarios que veio do controller
+      <!-- Foreach percorre a lista recebida e coloca cada item da lista $produtos que veio do controller
         na variavel $user -->
       <?php foreach ($vendas as $user):  ?>
         <tr>
-          <td><?= $user['id_usuario'] ?></td>
-          <td><?= $user['cliente'] ?></td>
-          <td><?= $user['produto_venda'] ?></td>
+          <td><?= $user['data_venda'] ?></td>
+          <td><?= $user['cliente_vendas'] ?></td>
+          <td><?= $user['livro_id'] ?></td>
           <td><?= $user['quantidade'] ?></td>
-          <!-- <td><?= $user['valor'] ?></td> -->
+          <td><?= $user['preco'] ?></td>
+         
 
           <td>
             <input class="btn btn-primary" type="button" value="Editar"
-              onclick="window.location.href='/vendas/<?= $user['id_usuario'] ?>/editar';">
+              onclick="window.location.href='/produtos/<?= $user['id_usuario'] ?>/editar';">
+          </td>
+          <td>
+            <button class="btn btn-sm btn-outline-danger btn-action" onclick="deletarFisico(<?= $user['id_usuario'] ?>)"
+              title="Excluir">
+              Fisico
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-outline-danger btn-action" onclick="deletarLogico(<?= $user['id_usuario'] ?>)"
+              title="Excluir">
+              Logico
+            </button>
           </td>
 
         </tr>
@@ -127,16 +235,37 @@
     </tbody>
   </table>
 
-  <div class="listagem-usuarios-botoes">
-    <input class="btn btn-primary" type="button" value="Cadastrar venda"
-      onclick="window.location.href='/vendas/novo';">
-    <input class="btn btn-primary" type="button" value="Cadastrar produto"
+  <!-- <div class="listagem-usuarios-botoes">
+    <input class="btn btn-primary" type="button" value="Cadastrar novo produto"
       onclick="window.location.href='/produtos/novo';">
-    <input class="btn btn-primary" type="button" value="Cadastrar usuario"
+    <input class="btn btn-primary" type="button" value="Cadastrar novo"
+      onclick="window.location.href='Listagemproduto.html';">
+    <input class="btn btn-primary" type="button" value="Listagem de vendas"
       onclick="window.location.href='/usuarios/novo';">
   </div>
 
+      -->
+
 </div>
+
+<script>
+  function deletarFisico(id) {
+    if (confirm("Deseja deletar PERMANENTEMENTE este produto?")) {
+      window.location.href = `/produtos/${id}/del-fisico`;
+    } else {
+      alert("Cancelado!");
+    }
+  }
+
+  function deletarLogico(id) {
+    if (confirm("Deseja DESATIVAR este produto?")) {
+      window.location.href = `/produtos/${id}/del-logico`;
+    } else {
+      alert("Cancelado!");
+    }
+  }
+</script>
+
 <?php
 if (isset($_SESSION['mensagem'])):
 ?>
