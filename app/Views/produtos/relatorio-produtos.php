@@ -2,8 +2,6 @@
 
     <h1 class="titulo-relatorio-produtos">Relatório produtos</h1>
 
-    
-
     <div class="tabela-relatorio-produtos">
 
     <div class="botao-imprimir-relatorio-produtos">

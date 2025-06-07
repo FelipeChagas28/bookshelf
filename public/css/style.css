@@ -203,3 +203,39 @@ footer {
   opacity: 5px;
 }
 
+/* relatorio-usuarios */
+
+.botao-imprimir-relatorio-usuarios button {
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  float: right;
+  padding: 5px;
+}
+
+.botao-imprimir-relatorio-usuarios button:hover {
+  background-color: #255fb8;
+  opacity: 5px;
+}
+
+.container-relatorio-usuarios {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.titulo-relatorio-usuarios {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.tabela-relatorio-usuarios {
+  padding: 10px;
+}

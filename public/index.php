@@ -64,7 +64,10 @@ if ($url == "/") {
     $usuarios = $usuarioCtrl->salvar();
 }
 
-
+// relatorio usuarios
+else if ($url == '/usuarios/relatorio') {
+    $usuarios = $usuarioCtrl->relatorio();
+}
 
 //pre_match utiliza uma expressão regular para extrair um valor de uma string
 else if (preg_match('#^/usuarios/(\d+)/editar$#', $url, $num)) {
@@ -80,8 +83,7 @@ else if (preg_match('#^/usuarios/(\d+)/atualizar$#', $url, $num) && $_SERVER['RE
     $usuarioCtrl->deleteLogico($num[1]);
 }
 
-
-//produtos
+    //produtos
 
 else if ($url == '/produtos') {
     $produtos = $produtosCtrl->listar();
@@ -96,8 +98,6 @@ else if ($url == '/produtos/relatorio') {
     $produtos = $produtosCtrl->relatorio();
 }
 
-
-
 //pre_match utiliza uma expressão regular para extrair um valor de uma string
 else if (preg_match('#^/produtos/(\d+)/editar$#', $url, $num)) {
     $produtosCtrl->editar($num[1]);
@@ -111,22 +111,20 @@ else if (preg_match('#^/produtos/(\d+)/atualizar$#', $url, $num) && $_SERVER['RE
 } else if (preg_match('#^/produtos/(\d+)/del-logico$#', $url, $num)) {
     $produtosCtrl->deleteLogico($num[1]);
 }
+ 
+    //vendas
 
-
-
-//produtos antigo
-
-//else if ($url == '/produtos') {
-//    render('/produtos/listagem-produtos.php', ['title' => 'Listar - Bookshelf']);
-//} else if ($url == '/produtos/novo') {
-//    render('/produtos/form-produtos.php', ['title' => 'Formulario - Bookshelf']);
-//} else if ($url == '/produtos/editar') {
-//    render('/produtos/form.php', ['title' => 'Editar formulário - Bookshelf']);
-//} else if ($url == '/produtos/deletar') {
-//    render('/produtos/listagem-produtos.php', ['title' => 'Deletar produtos - Bookshelf']);
-//} 
-
-//vendas
+//else if ($url == '/vendas') {
+//    $vendas = $vendasCtrl->listar();
+//} else if ($url == '/vendas/novo') {
+//    $vendas = $vendasCtrl->novo();
+//} else if ($url == "/vendas/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
+//    $vendas = $vendasCtrl->salvar();
+//} else if ($url == '/vendas/editar') {
+//    render('/vendas/form.php', ['title' => 'Editar formulário - Bookshelf']);
+//} else if ($url == '/vendas/deletar') {
+//    render('/vendas/listagem-vendas.php', ['title' => 'Deletar usuarios - Bookshelf']);
+//}
 
 else if ($url == '/vendas') {
     $vendas = $vendasCtrl->listar();
@@ -134,21 +132,26 @@ else if ($url == '/vendas') {
     $vendas = $vendasCtrl->novo();
 } else if ($url == "/vendas/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $vendas = $vendasCtrl->salvar();
-} else if ($url == '/vendas/editar') {
-    render('/vendas/form.php', ['title' => 'Editar formulário - Bookshelf']);
-} else if ($url == '/vendas/deletar') {
-    render('/vendas/listagem-vendas.php', ['title' => 'Deletar usuarios - Bookshelf']);
 }
 
-//else if ($url == '/vendas') {
-//    render('/vendas/listagem-vendas.php', ['title' => 'Listar - Bookshelf']);
-//} else if ($url == '/vendas/novo') {
-//    render('/vendas/form-vendas.php', ['title' => 'Formulario - Bookshelf']);
-//} else if ($url == '/vendas/editar') {
-//    render('/vendas/form.php', ['title' => 'Editar formulário - Bookshelf']);
-//} else if ($url == '/vendas/deletar') {
-//    render('/vendas/listagem-vendas.php', ['title' => 'Deletar vendas - Bookshelf']);
-//}
+// relatorio produtos
+else if ($url == '/vendas/relatorio') {
+    $vendas = $vendasCtrl->relatorio();
+}
+
+//pre_match utiliza uma expressão regular para extrair um valor de uma string
+else if (preg_match('#^/vendas/(\d+)/editar$#', $url, $num)) {
+    $vendasCtrl->editar($num[1]);
+}
+
+//pre_match utiliza uma expressão regular para extrair um valor de uma string
+else if (preg_match('#^/vendas/(\d+)/atualizar$#', $url, $num) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    $vendasCtrl->atualizar($num[1]);
+} else if (preg_match('#^/vendas/(\d+)/del-fisico$#', $url, $num)) {
+    $vendasCtrl->deleteFisico($num[1]);
+} else if (preg_match('#^/vendas/(\d+)/del-logico$#', $url, $num)) {
+    $vendasCtrl->deleteLogico($num[1]);
+}
 
 //outras rotas entram aqui...
 else {

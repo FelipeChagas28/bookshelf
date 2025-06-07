@@ -22,6 +22,19 @@ class vendasController
         ]);
     }
 
+    //Função relatorio para a rota relatorio funcionar
+    public function relatorio()
+    {
+        //chama a Model de produtos e executa a busca no BD
+        $vendas = Vendas::buscarTodos();
+
+        // exibe o arquivo PHP de lista enviando os usuarios do BD para apresentação
+        render('/vendas/relatorio-vendas.php', [
+            'title' => 'Relatorio vendas - Bookshelf',
+            "vendas" => $vendas
+        ]);
+    }
+
     //Abre o formulario para criar um usuario
     public function novo()
     {

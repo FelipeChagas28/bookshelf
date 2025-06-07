@@ -1,6 +1,10 @@
 
   <h1 class="titulo-dashboard">Dashboard</h1>
 
+  <input class="btn btn-primary" type="submit" value="Relatório produtos" onclick="window.location.href='/produtos/relatorio';">
+  <input class="btn btn-primary" type="submit" value="Relatório usuarios" onclick="window.location.href='/usuarios/relatorio';">
+  <input class="btn btn-primary" type="submit" value="Relatório vendas" onclick="window.location.href='/vendas/relatorio';">
+
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
       <tr>

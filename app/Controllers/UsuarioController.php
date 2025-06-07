@@ -21,6 +21,19 @@ class UsuarioController
         ]);
     }
 
+    //Função relatorio para a rota relatorio funcionar
+    public function relatorio()
+    {
+        //chama a Model de produtos e executa a busca no BD
+        $usuarios = Usuario::buscarTodos();
+
+        // exibe o arquivo PHP de lista enviando os usuarios do BD para apresentação
+        render('/usuarios/relatorio-usuarios.php', [
+            'title' => 'Relatorio usuários - Bookshelf',
+            "usuarios" => $usuarios
+        ]);
+    }
+
     //Abre o formulario para criar um usuario
     public function novo()
     {
