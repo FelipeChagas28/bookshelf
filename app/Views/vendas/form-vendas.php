@@ -81,10 +81,17 @@ unset($_SESSION['erros']); ?>
 
     <h1 class="titulo-cadastro-vendas">Cadastro de vendas</h1>
 
-    <div class="col-md-5">
-      <label for="input-cliente" class="form-label">Cliente</label>
-      <input type="text" placeholder="Insira o nome do cliente..." class="form-control" value="<?= isset($dados['cliente_vendas']) ? $dados['cliente_vendas'] : null ?>"
-        id="input-cliente" name="cliente_vendas">
+    <div class="col-md-4">
+      <label for="produto_id">Cliente:</label>
+      <select name="cliente_id" required>
+        <option value="">Selecione um cliente</option>
+        <?php foreach ($usuarios as $usuario): ?>
+          <option value="<?= $usuario['id_usuario'] ?>">
+            <?= $usuario['nome'] ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+
     </div>
     <div class="col-md-4">
       <label for="input-cpf" class="form-label">CPF</label>
@@ -101,13 +108,23 @@ unset($_SESSION['erros']); ?>
       <input type="number" placeholder="..." class="form-control" value="<?= isset($dados['quantidade']) ? $dados['quantidade'] : null ?>"
         id="input-quantidade" name="quantidade">
     </div>
+
+
     <div class="col-md-4">
-      <label for="input-produto" class="form-label">Produto</label>
-      <select id="input-produto" class="form-select" name="produto">
-        <option>Selecione...</option>
-        <option <?= $user['livro_id'] ?>></option>
+      <label for="produto_id">Livro:</label>
+      <select name="produto_id" required>
+        <option value="">Selecione um livro</option>
+        <?php foreach ($produtos as $produto): ?>
+          <option value="<?= $produto['id_produto'] ?>">
+            <?= $produto['nome_livro'] ?>
+          </option>
+        <?php endforeach; ?>
       </select>
+
     </div>
+
+
+
     <div class="col-md-4">
       <label for="input-forma-pagamento" class="form-label">Forma de pagamento</label>
       <select id="input-forma-pagamento" class="form-select" name="forma_pagamento_id">
@@ -119,9 +136,9 @@ unset($_SESSION['erros']); ?>
     </div>
 
     <div class="registro-vendas-botoes">
-      <input class="btn btn-primary" type="submit" value="Voltar" >
-      <input class="btn btn-primary" type="submit" value="Limpar" >
-      <input class="btn btn-primary" type="submit" value="Salvar" >
+      <input class="btn btn-primary" type="submit" value="Voltar">
+      <input class="btn btn-primary" type="submit" value="Limpar">
+      <input class="btn btn-primary" type="submit" value="Salvar">
 
     </div>
   </form>

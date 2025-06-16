@@ -19,10 +19,24 @@ class Vendas
         $pdo = Database::conectar();
 
         //monta o script SQL de consulta
-        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL";
+        $sql = "SELECT 
+    v.id_usuario AS id_venda,
+    u.nome,
+    v.cpf_vendas,
+    v.data_venda,
+    v.quantidade,
+    p.nome_livro,
+    p.preco,
+    v.created_at
+FROM vendas v
+INNER JOIN produtos p ON v.livro_id = p.id_usuario
+INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+WHERE v.deleted_at IS NULL";
         //Retorna o resultado do script SQL
         return $pdo->query($sql)->fetchALL();
     }
+
+
 
     public static function buscarUm($id)
     {
@@ -30,7 +44,19 @@ class Vendas
         //inicia a conexão com o BD
         $pdo = Database::conectar();
 
-        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL AND id_usuario = :id";
+        $sql = "SELECT 
+    v.id_usuario AS id_venda,
+    u.nome,
+    v.cpf_vendas,
+    v.data_venda,
+    v.quantidade,
+    p.nome_livro,
+    p.preco,
+    v.created_at
+FROM vendas v
+INNER JOIN produtos p ON v.livro_id = p.id_usuario
+INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+WHERE v.deleted_at IS NULL";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -38,7 +64,7 @@ class Vendas
         return $stmt->fetch();
     }
 
-    //Salva um usuario no BD com os dados da View
+    //Salva uma venda no BD com os dados da View
     public static function salvar($dados)
     {
         try {
@@ -47,19 +73,19 @@ class Vendas
             //criptografa a senha do usuario antes de salvar 
             //$senha = password_hash($dados['senha'], PASSWORD_BCRYPT);
 
-            $sql = "INSERT INTO vendas (cliente_vendas, cpf_vendas, data_venda, quantidade, livro_id, forma_pagamento_id) ";
-            $sql .= "VALUES (:cliente_vendas, :cpf_vendas, :data_venda, :quantidade, :livro_id, :forma_pagamento_id)";
+            $sql = "INSERT INTO vendas (cliente_id, cpf_vendas, data_venda, quantidade, livro_id, forma_pagamento_id) ";
+            $sql .= "VALUES (:cliente_id, :cpf_vendas, :data_venda, :quantidade, :livro_id, :forma_pagamento_id)";
 
             //prepara o SQL para ser inserido no BD limpando códigos maliciosos
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':cliente_vendas', $dados['cliente_vendas'], PDO::PARAM_STR);
+            $stmt->bindParam(':cliente_id', $dados['cliente_id'], PDO::PARAM_STR);
             $stmt->bindParam(':cpf_vendas', $dados['cpf_vendas'], PDO::PARAM_STR);
             $stmt->bindParam(':data_venda', $dados['data_venda']);
             $stmt->bindParam(':quantidade', $dados['quantidade'], PDO::PARAM_STR);
             $stmt->bindParam(':livro_id', $dados['livro_id'], PDO::PARAM_STR);
             $stmt->bindParam(':forma_pagamento_id', $dados['forma_pagamento_id'], PDO::PARAM_STR);
-            
+
             //demais campos...
 
             //executa o SQL no Banco de dados
@@ -79,7 +105,7 @@ class Vendas
             $pdo = Database::conectar();
 
             $sql = "UPDATE vendas SET ";
-            $sql .= " cliente_vendas = :cliente_vendas,";
+            $sql .= " cliente_id = :cliente_id,";
             $sql .= " cpf_vendas = :cpf_vendas,";
             $sql .= " data_venda = :data_venda,";
             $sql .= " quantidade = :quantidade,";
@@ -90,7 +116,7 @@ class Vendas
 
             $stmt = $pdo->prepare($sql);
 
-            $stmt->bindParam(':cliente_vendas', $dados['cliente_vendas'], PDO::PARAM_STR);
+            $stmt->bindParam(':cliente_id', $dados['cliente_id'], PDO::PARAM_STR);
             $stmt->bindParam(':cpf_vendas', $dados['cpf_vendas'], PDO::PARAM_STR);
             $stmt->bindParam(':data_venda', $dados['data_venda']);
             $stmt->bindParam(':quantidade', $dados['quantidade'], PDO::PARAM_STR);
@@ -118,7 +144,8 @@ class Vendas
         $stmt->execute();
     }
 
-    public static function deletarFisico($id){
+    public static function deletarFisico($id)
+    {
         $pdo = Database::conectar();
 
         $sql = "DELETE FROM vendas WHERE id_usuario = :id";

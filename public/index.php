@@ -114,17 +114,7 @@ else if (preg_match('#^/produtos/(\d+)/atualizar$#', $url, $num) && $_SERVER['RE
  
     //vendas
 
-//else if ($url == '/vendas') {
-//    $vendas = $vendasCtrl->listar();
-//} else if ($url == '/vendas/novo') {
-//    $vendas = $vendasCtrl->novo();
-//} else if ($url == "/vendas/salvar" && $_SERVER['REQUEST_METHOD'] == 'POST') {
-//    $vendas = $vendasCtrl->salvar();
-//} else if ($url == '/vendas/editar') {
-//    render('/vendas/form.php', ['title' => 'Editar formulário - Bookshelf']);
-//} else if ($url == '/vendas/deletar') {
-//    render('/vendas/listagem-vendas.php', ['title' => 'Deletar usuarios - Bookshelf']);
-//}
+
 
 else if ($url == '/vendas') {
     $vendas = $vendasCtrl->listar();
@@ -134,7 +124,7 @@ else if ($url == '/vendas') {
     $vendas = $vendasCtrl->salvar();
 }
 
-// relatorio produtos
+// relatorio vendas
 else if ($url == '/vendas/relatorio') {
     $vendas = $vendasCtrl->relatorio();
 }

@@ -183,7 +183,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
-    
+
   </div>
 
 
@@ -201,20 +201,20 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Foreach percorre a lista recebida e coloca cada item da lista $produtos que veio do controller
+      <!-- Foreach percorre a lista recebida e coloca cada item da lista $vendas que veio do controller
         na variavel $user -->
       <?php foreach ($vendas as $user):  ?>
         <tr>
           <td><?= $user['data_venda'] ?></td>
-          <td><?= $user['cliente_vendas'] ?></td>
-          <td><?= $user['livro_id'] ?></td>
+          <td><?= $user['nome'] ?></td>
+          <td><?= $user['nome_livro'] ?></td>
           <td><?= $user['quantidade'] ?></td>
           <td><?= $user['preco'] ?></td>
-         
+
 
           <td>
             <input class="btn btn-primary" type="button" value="Editar"
-              onclick="window.location.href='/produtos/<?= $user['id_usuario'] ?>/editar';">
+              onclick="window.location.href='/vendas/<?= $user['id_usuario'] ?>/editar';">
           </td>
           <td>
             <button class="btn btn-sm btn-outline-danger btn-action" onclick="deletarFisico(<?= $user['id_usuario'] ?>)"

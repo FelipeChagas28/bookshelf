@@ -25,6 +25,8 @@ class Produtos
         return $pdo->query($sql)->fetchALL();
     }
 
+    
+
     public static function buscarUm($id)
     {
 

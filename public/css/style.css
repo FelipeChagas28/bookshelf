@@ -74,6 +74,43 @@ footer {
   padding-bottom: 15px;
 }
 
+/* relatorio-usuarios */
+
+.botao-imprimir-relatorio-usuarios button {
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  float: right;
+  padding: 5px;
+}
+
+.botao-imprimir-relatorio-usuarios button:hover {
+  background-color: #255fb8;
+  opacity: 5px;
+}
+
+.container-relatorio-usuarios {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.titulo-relatorio-usuarios {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.tabela-relatorio-usuarios {
+  padding: 10px;
+}
+
 /* form-vendas */
 
 .container-cadastro-vendas {
@@ -203,24 +240,9 @@ footer {
   opacity: 5px;
 }
 
-/* relatorio-usuarios */
+/* container-dashboard */
 
-.botao-imprimir-relatorio-usuarios button {
-  background-color: #0d6efd;
-  color: #fff;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  border: none;
-  float: right;
-  padding: 5px;
-}
-
-.botao-imprimir-relatorio-usuarios button:hover {
-  background-color: #255fb8;
-  opacity: 5px;
-}
-
-.container-relatorio-usuarios {
+.container-dashboard {
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px;
@@ -228,14 +250,15 @@ footer {
   border-radius: 10px;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
   color: #fff;
-  margin-bottom: 20px;
 }
 
-.titulo-relatorio-usuarios {
+.titulo-dashboard {
   text-align: center;
   padding-bottom: 15px;
 }
 
-.tabela-relatorio-usuarios {
-  padding: 10px;
+.botoes-relatorio-dashboard {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
 }

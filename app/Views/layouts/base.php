@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
             <!-- A imagem da logo ta como link pq ta dando erro, mas o arquivo é o "logo-bookshelf.png" -->
             <a class="navbar-brand" href="#"><img src="https://png.pngtree.com/png-vector/20230105/ourmid/pngtree-book-icon-vector-image-png-image_6552370.png" width="30" height="24" class="me-2">Bookshelf</a>
@@ -22,6 +22,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="login.html">Login</a>
                     </li>
@@ -53,6 +54,8 @@
             </div>
         </div>
     </nav>
+
+
 
     <div class="container mt-4">
 

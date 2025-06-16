@@ -22,6 +22,8 @@ class ProdutosController
         ]);
     }
 
+    
+
     //Função relatorio para a rota relatorio funcionar
     public function relatorio()
     {

@@ -51,13 +51,14 @@ CREATE TABLE IF NOT EXISTS produtos (
 
 CREATE TABLE IF NOT EXISTS vendas (
     id_usuario BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    cliente_vendas VARCHAR(255) NOT NULL,
-    cpf_vendas VARCHAR(14),
+    cpf_vendas VARCHAR(14), -- Não sei se precisa desse
     data_venda DATE,
     quantidade INT NOT NULL,
     livro_id BIGINT UNSIGNED NOT NULL,
     forma_pagamento_id INT UNSIGNED NOT NULL,
+    cliente_id BIGINT UNSIGNED NOT NULL,
     
+    FOREIGN KEY (cliente_id) REFERENCES usuarios (id_usuario),
     FOREIGN KEY (forma_pagamento_id) REFERENCES formas_pagamentos (id_usuario),
     FOREIGN KEY (livro_id) REFERENCES produtos (id_usuario),
     
@@ -68,7 +69,7 @@ CREATE TABLE IF NOT EXISTS vendas (
 
 SELECT 
     v.id_usuario AS id_venda,
-    v.cliente_vendas,
+    u.nome,
     v.cpf_vendas,
     v.data_venda,
     v.quantidade,
@@ -76,16 +77,8 @@ SELECT
     p.preco,
     v.created_at
 FROM vendas v
-INNER JOIN produtos p ON v.livro_id = p.id_usuario;
-
-SELECT  
-    v.cliente_vendas,
-    v.cpf_vendas,
-    p.nome_livro,
-    v.quantidade,
-    v.data_venda
-FROM vendas AS v
 INNER JOIN produtos p ON v.livro_id = p.id_usuario
+INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
 WHERE v.deleted_at IS NULL;
 
 
@@ -93,25 +86,5 @@ WHERE v.deleted_at IS NULL;
 
 
 
-INSERT INTO formas_pagamentos (descricao, taxa, desconto) VALUES 
-('Dinheiro', 0.000, 0.10),      -- 5% desconto
-('Cartão de Crédito', 0.050, 0.000),  -- 3% taxa
-('PIX', 0.000, 0.020),           -- 2% desconto
-('Cartão de Débito', 0.015, 0.000);
 
-INSERT INTO vendas (
-    cliente_vendas,
-    cpf_vendas,
-    data_venda,
-    quantidade,
-    livro_id,
-    forma_pagamento_id
-) VALUES 
-(
-    'Maria Silva Santos',
-    '123.456.789-01',
-    '2024-06-01',
-    2,
-    5,
-    1
-);
+

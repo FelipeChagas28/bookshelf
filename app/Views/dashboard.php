@@ -1,10 +1,12 @@
-
+<div class="container-dashboard">
   <h1 class="titulo-dashboard">Dashboard</h1>
 
-  <input class="btn btn-primary" type="submit" value="Relatório produtos" onclick="window.location.href='/produtos/relatorio';">
-  <input class="btn btn-primary" type="submit" value="Relatório usuarios" onclick="window.location.href='/usuarios/relatorio';">
-  <input class="btn btn-primary" type="submit" value="Relatório vendas" onclick="window.location.href='/vendas/relatorio';">
+  <div class="botoes-relatorio-dashboard">
+    <input class="btn btn-primary" type="submit" value="Relatório produtos" onclick="window.location.href='/produtos/relatorio';">
+    <input class="btn btn-primary" type="submit" value="Relatório usuarios" onclick="window.location.href='/usuarios/relatorio';">
+    <input class="btn btn-primary" type="submit" value="Relatório vendas" onclick="window.location.href='/vendas/relatorio';">
 
+  </div>
   <table class="table table-striped table-dark">
     <thead class="thead-dark">
       <tr>
@@ -54,7 +56,7 @@
     </tbody>
   </table>
 
-  <div class="dashboard-botoes">
+  <!-- <div class="dashboard-botoes">
     <input class="btn btn-primary" type="button" value="Listagem de vendas"
       onclick="window.location.href='ListagemVendas.html';">
     <input class="btn btn-primary" type="button" value="Listagem de produtos"
@@ -62,3 +64,6 @@
 
   </div>
 
+-->
+
+</div>

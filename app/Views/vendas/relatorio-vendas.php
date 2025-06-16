@@ -112,7 +112,7 @@
         <tr>
           <td><?= $user['id_usuario'] ?></td>
           <td><?= $user['cliente'] ?></td>
-          <td><?= $user['produto_venda'] ?></td>
+          <td><?= $user['nome_livro'] ?></td>
           <td><?= $user['quantidade'] ?></td>
           <!-- <td><?= $user['valor'] ?></td> -->
 

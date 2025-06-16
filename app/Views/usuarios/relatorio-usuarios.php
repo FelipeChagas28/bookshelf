@@ -1,5 +1,5 @@
 <div class="container-relatorio-usuarios">
-  <h1 class="titulo-relatorio-usuarios">Usuários</h1>
+  <h1 class="titulo-relatorio-usuarios">Relatório usuários</h1>
 
   <table class="table table-striped table-dark">
 

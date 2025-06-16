@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 // Importa o Model para ser utilizado
 use App\Models\Vendas;
+use App\Models\Produtos;
+use App\Models\Usuario;
+
+
+
 
 class VendasController
 {
@@ -14,12 +19,16 @@ class VendasController
         //chama a Model de usuario e executa a busca no BD
         $vendas = Vendas::buscarTodos();
 
+
         // exibe o arquivo PHP de lista enviando os usuarios do BD para apresentação
         render('/vendas/listagem-vendas.php', [
             'title' => 'Listar - Bookshelf',
             "vendas" => $vendas
         ]);
     }
+
+    //tentativa de fazer uma função para mostrar
+
 
     //Função relatorio para a rota relatorio funcionar
     public function relatorio()
@@ -35,9 +44,17 @@ class VendasController
     }
 
     //Abre o formulario para criar um usuario
+
+    //Copilot fez isso
     public function novo()
     {
-        render('/vendas/form-vendas.php', ['title' => 'Formulario vendas - Bookshelf']);
+        $produtos = \App\Models\Produtos::buscarTodos();
+        $usuarios = \App\Models\Usuario::buscarTodos();
+        render('/vendas/form-vendas.php', [
+            'title' => 'Formulario vendas - Bookshelf',
+            'produtos' => $produtos,
+            'usuarios' => $usuarios
+        ]);
     }
 
     // Salva um novo usuario no BD
@@ -46,7 +63,7 @@ class VendasController
 
         // 1. Sanitização (Remove tudo que não for texto puro, evita golpes)
         $dados = [
-            'cliente_vendas' => filter_input(INPUT_POST, 'cliente_vendas', FILTER_SANITIZE_SPECIAL_CHARS),
+            'cliente_id' => filter_input(INPUT_POST, 'cliente_id', FILTER_SANITIZE_SPECIAL_CHARS),
             'cpf_vendas' => filter_input(INPUT_POST, 'cpf_vendas', FILTER_SANITIZE_SPECIAL_CHARS),
             'data_venda' => $_POST['data_venda'] ?? '',
             'quantidade' => filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -70,7 +87,7 @@ class VendasController
         } else {
             // Chama o Model passando os dados
             Vendas::salvar($dados);
-            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_vendas'] . ", cadastrado com sucesso!";
+            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_id'] . ", cadastrado com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
             header('Location: /vendas');
         }
@@ -91,7 +108,7 @@ class VendasController
 
         // 1. Sanitização (Remove tudo que não for texto puro, evita golpes)
         $dados = [
-            'cliente_vendas' => filter_input(INPUT_POST, 'cliente_vendas', FILTER_SANITIZE_SPECIAL_CHARS),
+            'cliente_id' => filter_input(INPUT_POST, 'cliente_id', FILTER_SANITIZE_SPECIAL_CHARS),
             'cpf_vendas' => filter_input(INPUT_POST, 'cpf_vendas', FILTER_SANITIZE_SPECIAL_CHARS),
             'data_venda' => $_POST['data_venda'] ?? '',
             'quantidade' => filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -116,7 +133,7 @@ class VendasController
             // Chama o Model passando os dados
 
             Vendas::atualizar($dados);
-            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_vendas'] . ", alterado com sucesso!";
+            $_SESSION['mensagem'] = "Venda para: " . $dados['cliente_id'] . ", alterado com sucesso!";
             $_SESSION['tipo_mensagem'] = "success";
             header('Location: /vendas');
         }
@@ -143,13 +160,14 @@ class VendasController
     {
         $erros = [];
 
+        /* 
         //validação do nome
-        if (empty($dados['cliente_vendas'])) {
+        if (empty($dados['cliente_id'])) {
             $erros[] = "O nome do cliente é obrigatório!";
-        } else if (strlen($dados['cliente_vendas']) < 3) {
+        } else if (strlen($dados['cliente_id']) < 3) {
             $erros[] = "O nome deve ter pelo menos 3 caracteres.";
         }
-
+*/
         return $erros;
     }
 }

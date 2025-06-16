@@ -71,3 +71,28 @@ VALUES
     ('Cartão de Crédito', 0.050, 0.000),
     ('PIX', 0.000, 0.020),
     ('Cartão de Débito', 0.015, 0.000);
+
+-- Insert vendas
+INSERT INTO
+    vendas (
+        cpf_vendas,
+        data_venda,
+        quantidade,
+        livro_id,
+        forma_pagamento_id,
+        cliente_id
+    )
+VALUES
+    ('123.456.789-00', '2025-06-13', 6, 6, 1, 12);
+
+INSERT INTO
+    vendas (
+        cpf_vendas,
+        data_venda,
+        quantidade,
+        livro_id,
+        forma_pagamento_id,
+        cliente_id
+    )
+VALUES
+    ('123.456.789-00', '2025-06-13', 2, 6, 2, 11);
