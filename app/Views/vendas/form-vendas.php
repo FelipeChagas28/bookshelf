@@ -83,10 +83,10 @@ unset($_SESSION['erros']); ?>
 
     <div class="col-md-4">
       <label for="produto_id">Cliente:</label>
-      <select name="cliente_id" required>
+      <select name="cliente_id" class="form-select">
         <option value="">Selecione um cliente</option>
         <?php foreach ($usuarios as $usuario): ?>
-          <option value="<?= $usuario['id_usuario'] ?>">
+          <option value="<?= $usuario['id_usuario'] ?>" <?= (isset($dados['cliente_id']) && $dados['cliente_id'] == $usuario['id_usuario']) ? 'selected' : '' ?>>
             <?= $usuario['nome'] ?>
           </option>
         <?php endforeach; ?>
@@ -106,16 +106,16 @@ unset($_SESSION['erros']); ?>
     <div class="col-md-2">
       <label for="input-quantidade" class="form-label">Quantidade</label>
       <input type="number" placeholder="..." class="form-control" value="<?= isset($dados['quantidade']) ? $dados['quantidade'] : null ?>"
-        id="input-quantidade" name="quantidade">
+        id="input-quantidade" name="quantidade" min="1">
     </div>
 
 
     <div class="col-md-4">
       <label for="produto_id">Livro:</label>
-      <select name="produto_id" required>
+      <select name="livro_id" class="form-select">
         <option value="">Selecione um livro</option>
         <?php foreach ($produtos as $produto): ?>
-          <option value="<?= $produto['id_produto'] ?>">
+          <option value="<?= $produto['id_usuario'] ?>" <?= (isset($dados['livro_id']) && $dados['livro_id'] == $produto['id_usuario']) ? 'selected' : '' ?>>
             <?= $produto['nome_livro'] ?>
           </option>
         <?php endforeach; ?>

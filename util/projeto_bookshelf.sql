@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS vendas (
 );
 
 SELECT 
-    v.id_usuario AS id_venda,
+    v.id_usuario,
     u.nome,
     v.cpf_vendas,
     v.data_venda,

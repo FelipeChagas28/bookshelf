@@ -20,7 +20,7 @@ class Vendas
 
         //monta o script SQL de consulta
         $sql = "SELECT 
-    v.id_usuario AS id_venda,
+    v.id_usuario,
     u.nome,
     v.cpf_vendas,
     v.data_venda,
@@ -45,7 +45,7 @@ WHERE v.deleted_at IS NULL";
         $pdo = Database::conectar();
 
         $sql = "SELECT 
-    v.id_usuario AS id_venda,
+    v.id_usuario,
     u.nome,
     v.cpf_vendas,
     v.data_venda,

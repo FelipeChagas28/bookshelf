@@ -127,15 +127,28 @@ footer {
   gap: 20px;
 }
 
-.titulo-cadastro-form-vendas {
+
+.titulo-cadastro-vendas {
   text-align: center;
+  padding-bottom: 10px;
 }
+
+
+
+.col-md-4 label {
+  display: block;
+  margin-bottom: 4px;
+  align-items: center;
+}
+
 
 .registro-vendas-botoes {
   padding-top: 10px;
   display: flex;
   gap: 10px;
 }
+
+ 
 
 /* form-produtos */
 
