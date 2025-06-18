@@ -4,15 +4,16 @@ body {
   background: linear-gradient(1000deg, #976e6e, #d34949);
 }
 
-/*
 footer {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(1000deg, #343a40b1, #23303c); 
+  width: 100%;
+  background: linear-gradient(1000deg, #343a40b1, #23303c);
   color: rgb(255, 255, 255);
   padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .footer-base {
@@ -21,7 +22,6 @@ footer {
   margin: 0 auto;
   padding: 0 15px;
 }
-*/
 
 /* form-usuarios */
 
@@ -127,13 +127,10 @@ footer {
   gap: 20px;
 }
 
-
 .titulo-cadastro-vendas {
   text-align: center;
   padding-bottom: 10px;
 }
-
-
 
 .col-md-4 label {
   display: block;
@@ -141,14 +138,71 @@ footer {
   align-items: center;
 }
 
-
 .registro-vendas-botoes {
   padding-top: 10px;
   display: flex;
   gap: 10px;
 }
 
- 
+/* listagem-vendas */
+
+.container-listagem-vendas {
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  padding: 30px;
+  color: #fff;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.titulo-listagem-vendas {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.listagem-vendas-pesquisa {
+  max-width: 300px;
+}
+
+.botao-pesquisa-adicionar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/* relatorio-vendas */
+
+.container-relatorio-vendas {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.botao-imprimir-relatorio-vendas button {
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: none;
+  float: right;
+  padding: 5px;
+}
+
+.botao-imprimir-relatorio-vendas button:hover {
+  background-color: #255fb8;
+  opacity: 5px;
+}
+
+.titulo-relatorio-vendas {
+  text-align: center;
+  padding-bottom: 15px;
+}
 
 /* form-produtos */
 
@@ -233,7 +287,7 @@ footer {
 /* Tirar a navbar e footer da impressão */
 @media print {
   .navbar,
-  .footer {
+  footer {
     display: none;
   }
 }
@@ -273,5 +327,54 @@ footer {
 .botoes-relatorio-dashboard {
   display: flex;
   gap: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+/* Login */
+
+.container-login {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 50px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-top: 5%;
+}
+
+.titulo-login {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.botoes-login{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.botao-lembrar-login {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.cadastro-login {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  padding-top: 5px;
+}
+
+.email-senha-login{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
 }

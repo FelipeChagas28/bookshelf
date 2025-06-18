@@ -12,7 +12,7 @@
 </head>
 
 <body>
- 
+
   <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><img class="logo" src="img/nav bar icon.png" alt="Logo" width="30" height="24"
@@ -54,45 +54,35 @@
 
   <!-- aba de login-->
 
-  <div class="container">
-    <form class="login">
-      <h1 class="text-login">Login</h1>
-      <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3">
-        </div>
-      </div>
-      <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Senha</label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword3">
-        </div>
+  <div class="container-login">
+
+    <form class="form-login">
+
+      <h1 class="titulo-login">Login</h1>
+
+      <div class="email-senha-login">
+        <label for="email">Email</label>
+        <input type="text" name="" id="email" class="form-control" placeholder="Insira seu e-mail...">
+        <label for="senha">Senha</label>
+        <input type="password" name="" id="senha" class="form-control" placeholder="Insira sua senha...">
       </div>
 
-      <div class="row mb-3">
-        <div class="col-sm-10 offset-sm-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              Lembrar do login
-            </label>
-          </div>
+      <div class="botao-lembrar-login">
+        <div class="">
+          <input class="form-check-input" type="checkbox" id=lembrar-login">
+          <label class="form-check-label" for="lembrar-login">Lembrar do login</label>
         </div>
+        <a href="#" style="color: #fff; text-decoration:none;">Esqueci a senha</a>
       </div>
-      <button type="submit" class="btn btn-primary">Entrar</button>
-      <a href="/dashboard" class="btn btn-outline-secondary btn-lg">Entrar como demonstração</a>
-      <button type="button" class="btn btn-primary" onclick="window.location.href = 'cadastro.html'">Cadastre-se</button>
-      <div>
-        <a href="" style="color: rgb(141, 141, 141); text-align: center;">
-          <p>Esqueci a senha</p>
-        </a>
+
+      <div class="botoes-login">
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        <a href="/dashboard" class="btn btn-primary">Entrar como demonstração</a>
       </div>
     </form>
-
-
   </div>
 
+  <a href="#" class="cadastro-login">Cadastre-se</a>
 
 </body>
 

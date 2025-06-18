@@ -92,80 +92,6 @@
 
 -->
 
-<!-- 
-
-<div class="container-listagem-produtos">
-
-  <h1 class="titulo-listagem-produto">Produtos</h1>
-
-  <div class="botao-pesquisa-adicionar">
-    <div class="listagem-produto-adicionar-produto">
-      <input class="btn btn-primary" type="submit" value="+" onclick="window.location.href='';">
-    </div>
-
-
-    <div class="listagem-produtos-pesquisa">
-      <form class="d-flex" role="search">
-        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-
-  </div>
-
-  <table class="table table-striped table-dark">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Estoque</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <th scope="row">Teste</th>
-        <td>R$40,00</td>
-        <td>23</td>
-        <td><input class="btn btn-primary" type="button" value="Editar" onclick="window.location.href='';"></td>
-      </tr>
-      <tr>
-        <td>teste</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">04/03/25</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">05/03/25</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">06/03/25</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row">07/03/25</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
-
--->
 
 <div class="container-listagem-vendas">
 
@@ -250,16 +176,16 @@
 
 <script>
   function deletarFisico(id) {
-    if (confirm("Deseja deletar PERMANENTEMENTE este produto?")) {
-      window.location.href = `/produtos/${id}/del-fisico`;
+    if (confirm("Deseja deletar PERMANENTEMENTE esta venda?")) {
+      window.location.href = `/vendas/${id}/del-fisico`;
     } else {
       alert("Cancelado!");
     }
   }
 
   function deletarLogico(id) {
-    if (confirm("Deseja DESATIVAR este produto?")) {
-      window.location.href = `/produtos/${id}/del-logico`;
+    if (confirm("Deseja DESATIVAR esta venda?")) {
+      window.location.href = `/vendas/${id}/del-logico`;
     } else {
       alert("Cancelado!");
     }

@@ -53,10 +53,10 @@ WHERE v.deleted_at IS NULL";
     p.nome_livro,
     p.preco,
     v.created_at
-FROM vendas v
-INNER JOIN produtos p ON v.livro_id = p.id_usuario
-INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
-WHERE v.deleted_at IS NULL";
+    FROM vendas v
+    INNER JOIN produtos p ON v.livro_id = p.id_usuario
+    INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+    WHERE v.deleted_at IS NULL";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);

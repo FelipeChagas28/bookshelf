@@ -7,9 +7,6 @@ use App\Models\Vendas;
 use App\Models\Produtos;
 use App\Models\Usuario;
 
-
-
-
 class VendasController
 {
 
@@ -44,11 +41,11 @@ class VendasController
         ]);
     }
 
-    //Abre o formulario para criar um usuario
 
-    //Copilot fez isso
+    //Pegando os dados dos Models e enviando para o formulário de vendas exibir no inner join.
     public function novo()
     {
+        //Chamando a função produtos de models
         $produtos = \App\Models\Produtos::buscarTodos();
         $usuarios = \App\Models\Usuario::buscarTodos();
         $vendas = \App\Models\Vendas::buscarTodos();
