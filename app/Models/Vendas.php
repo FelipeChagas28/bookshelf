@@ -26,11 +26,13 @@ $sql = "SELECT
     v.data_venda,
     v.quantidade,
     p.nome_livro,
+    fp.descricao,
     p.preco,
     v.created_at
     FROM vendas v
     INNER JOIN produtos p ON v.livro_id = p.id_usuario
     INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+    INNER JOIN formas_pagamentos fp ON v.forma_pagamento_id = fp.id_usuario
     WHERE v.deleted_at IS NULL";
 
         //Retorna o resultado do script SQL
@@ -45,7 +47,23 @@ $sql = "SELECT
         //inicia a conexão com o BD
         $pdo = Database::conectar();
 
-        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL AND id_usuario = :id";
+        //$sql = "SELECT * FROM vendas WHERE deleted_at IS NULL AND id_usuario = :id";
+        $sql = "SELECT 
+    v.id_usuario,
+    u.nome,
+    v.cpf_vendas,
+    v.data_venda,
+    v.quantidade,
+    p.nome_livro,
+    fp.descricao,
+    p.preco,
+    v.created_at
+    FROM vendas v
+    INNER JOIN produtos p ON v.livro_id = p.id_usuario
+    INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+    INNER JOIN formas_pagamentos fp ON v.forma_pagamento_id = fp.id_usuario
+    WHERE v.deleted_at IS NULL AND v.id_usuario = :id";
+
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);

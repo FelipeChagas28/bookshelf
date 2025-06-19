@@ -161,17 +161,6 @@
     </tbody>
   </table>
 
-  <!-- <div class="listagem-usuarios-botoes">
-    <input class="btn btn-primary" type="button" value="Cadastrar novo produto"
-      onclick="window.location.href='/produtos/novo';">
-    <input class="btn btn-primary" type="button" value="Cadastrar novo"
-      onclick="window.location.href='Listagemproduto.html';">
-    <input class="btn btn-primary" type="button" value="Listagem de vendas"
-      onclick="window.location.href='/usuarios/novo';">
-  </div>
-
-      -->
-
 </div>
 
 <script>

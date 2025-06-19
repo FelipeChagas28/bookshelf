@@ -56,9 +56,9 @@
         <option>Selecione...</option>
           <?php foreach ($formasPagamento as $pagamentos): ?>
           <option
-            <?= isset($vendas['forma_pagamento_id']) && $dados['livro_id'] == $prod['id_usuario'] ? 'selected' : null ?>
-            value="<?= $prod['id_usuario'] ?>">
-            <?= $prod['nome_livro'] ?>
+            <?= isset($vendas['forma_pagamento_id']) && $dados['forma_pagamento_id'] == $pagamentos['id_usuario'] ? 'selected' : null ?>
+            value="<?= $pagamentos['id_usuario'] ?>">
+            <?= $pagamentos['descricao'] ?>
           </option>
         <?php endforeach; ?>
       </select>

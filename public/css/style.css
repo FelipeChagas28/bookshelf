@@ -378,3 +378,48 @@ footer {
   gap: 10px;
 
 }
+
+  /* Logout */
+
+.logout {
+  background-color: red;
+  border-radius: 10px;
+}
+
+.logout:hover {
+  background-color: #ff4d4d;
+  color: black;
+  opacity: 0.5;
+}
+
+/* Suporte */
+
+.container-suporte {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  background: linear-gradient(300deg, #753ba5, #3b2a49);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  margin-top: 5%;
+  
+}
+
+.titulo-suporte {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.botao-suporte {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.campos-suporte{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

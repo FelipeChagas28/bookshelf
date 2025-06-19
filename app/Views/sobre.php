@@ -13,67 +13,29 @@
 
 <body>
 
+  <div class="container-suporte">
+    <form class="suporte">
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="logo" src="img/nav bar icon.png" alt="Logo" width="30" height="24"
-          class="d-inline-block align-text-top"></style>Bookstore</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="cadastroProduto.html">cadastroProduto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="listagemProduto.html">Listagem produto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListagemVendas.html">Listagem Vendas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="registroVendas.html">Registrar vendas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="suporte.html">Suporte</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+      <h1 class="titulo-suporte">Suporte</h1>
 
-
-
-  <div class="container">
-    <form class="login">
-      <h1 class="text-login">Suporte</h1>
-      <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
-        <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3">
+      <div class="campos-suporte">
+        
+        <div class="col-md-10">
+          <label for="input-nome" class="form-label">Nome:</label>
+          <input type="text" placeholder="Insira seu nome..." class="form-control" id="input-nome" name="#">
         </div>
-        <div class="row mb-3">
-          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3">
-          </div>
+
+        <div class="col-md-10">
+          <label for="input-email" class="form-label">E-mail:</label>
+          <input type="text" placeholder="Insira seu e-mail..." class="form-control" id="input-email" name="#">
+        </div>
+
+        <div class="col-md-10">
+          <label for="input-mensagem" class="form-label">Mensagem:</label>
+          <textarea class="form-control" id="input-mensagem" rows="3" placeholder="Insira seu e-mail..."></textarea>
         </div>
       </div>
-      <div class="mb-1">
-        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-      </div>
-
-      <div class="suporte-botao">
+      <div class="botao-suporte">
         <button type="button" class="btn btn-primary" onclick="window.location.href = ''">Enviar</button>
       </div>
     </form>

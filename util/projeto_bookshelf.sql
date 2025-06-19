@@ -74,12 +74,14 @@ SELECT
     v.data_venda,
     v.quantidade,
     p.nome_livro,
+    fp.descricao,
     p.preco,
     v.created_at
-FROM vendas v
-INNER JOIN produtos p ON v.livro_id = p.id_usuario
-INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
-WHERE v.deleted_at IS NULL;
+    FROM vendas v
+    INNER JOIN produtos p ON v.livro_id = p.id_usuario
+    INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
+    INNER JOIN formas_pagamentos fp ON v.forma_pagamento_id = fp.id_usuario
+    WHERE v.deleted_at IS NULL
 
 
 

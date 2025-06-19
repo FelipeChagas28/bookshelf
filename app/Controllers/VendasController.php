@@ -6,6 +6,7 @@ namespace App\Controllers;
 use App\Models\Vendas;
 use App\Models\Produtos;
 use App\Models\Usuario;
+use App\Models\FormasPagamentos;
 
 class VendasController
 {
@@ -48,16 +49,18 @@ class VendasController
         //Chamando a função produtos de models
         $produtos = Produtos::buscarTodos();
         $usuarios = Usuario::buscarTodos();
-        $vendas =   Vendas::buscarTodos();
+        $vendas = Vendas::buscarTodos();
+        $formasPagamento = FormasPagamentos::buscarTodos();
         render('/vendas/form-vendas.php', [
             'title' => 'Formulario vendas - Bookshelf',
             'produtos' => $produtos,
             'usuarios' => $usuarios,
+            'formasPagamento' => $formasPagamento,
             'vendas' => $vendas
         ]);
     }
 
-    // Salva um novo usuario no BD
+    // Salva uma nova venda no BD
     public function salvar()
     {
 
@@ -95,11 +98,19 @@ class VendasController
 
     public function editar($id)
     {
-        $dados = Vendas::buscarUm($id);
+        $dados = Vendas::buscarUm($id); //$dados recebe a função buscarUm($id)
+        $usuarios = Usuario::buscarTodos(); //Buscando todas as infos dos nomes em usuarios
+        $produtos = Produtos::buscarTodos();
+        $formasPagamento = FormasPagamentos::buscarTodos();
         //print_r($dados); exit();
         render('/vendas/form-vendas.php', [
             'title' => 'Alterar venda - Bookshelf',
+            'usuarios' => $usuarios,
+            'produtos' => $produtos,
+            'formasPagamento' => $formasPagamento,
             "dados" => $dados
+            
+            
         ]);
     }
 

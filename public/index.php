@@ -57,11 +57,11 @@ else if ($url == '/entrar' && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 else if ($url == '/entrar') {
     render_sem_login('auth/login.php', ['title' => 'Entrar no sistema - Bookshelf']);
-} else if ($url == 'sair') {
+} else if ($url == '/sair') {
     $authCtrl->logout();
 } 
 
-//usuario logado
+
 else if ($url == "/dashboard") {
     //validacao
     render('dashboard.php', ['title' => 'Dashboard - Bookshelf']);
