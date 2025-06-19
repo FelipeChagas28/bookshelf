@@ -13,7 +13,11 @@ $vendasCtrl = new VendasController();
 
 use App\Controllers\ProdutosController;
 
-$produtosCtrl = new produtosController();
+$produtosCtrl = new ProdutosController();
+
+use App\Controllers\AuthController;
+
+$authCtrl = new AuthController();
 
 //injeta o conteudo das páginas de rota dentro do template base.php
 function render($view, $data = [])
@@ -44,15 +48,29 @@ if ($url == "/") {
     header('Location: /entrar');
 } else if ($url == '/sobre') {
     render('sobre.php', ['title' => 'Sobre o sistema - Bookshelf']);
-} else if ($url == '/entrar') {
+}
+
+//Autenticação
+else if ($url == '/entrar' && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    $authCtrl->login();
+} 
+
+else if ($url == '/entrar') {
     render_sem_login('auth/login.php', ['title' => 'Entrar no sistema - Bookshelf']);
-} else if ($url == "/dashboard") {
+} else if ($url == 'sair') {
+    $authCtrl->logout();
+} 
+
+//usuario logado
+else if ($url == "/dashboard") {
+    //validacao
     render('dashboard.php', ['title' => 'Dashboard - Bookshelf']);
 } else if ($url == '/sobre') {
     render_sem_login('sobre.php', ['title' => 'Sobre - Bookshelf']);
 
 
-
+//implementar a validacao pra cliente
+//ta no github dele
 
     //usuarios
 
@@ -83,7 +101,7 @@ else if (preg_match('#^/usuarios/(\d+)/atualizar$#', $url, $num) && $_SERVER['RE
     $usuarioCtrl->deleteLogico($num[1]);
 }
 
-    //produtos
+//produtos
 
 else if ($url == '/produtos') {
     $produtos = $produtosCtrl->listar();
@@ -111,8 +129,8 @@ else if (preg_match('#^/produtos/(\d+)/atualizar$#', $url, $num) && $_SERVER['RE
 } else if (preg_match('#^/produtos/(\d+)/del-logico$#', $url, $num)) {
     $produtosCtrl->deleteLogico($num[1]);
 }
- 
-    //vendas
+
+//vendas
 
 
 

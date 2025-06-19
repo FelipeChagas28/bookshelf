@@ -1,3 +1,9 @@
+<?php
+if (isset($_SESSION['usuario_email'])) {
+  header('location: /dashboard');
+}
+?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -13,58 +19,40 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img class="logo" src="img/nav bar icon.png" alt="Logo" width="30" height="24"
-          class="d-inline-block align-text-top"></style>Bookstore</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="cadastroProduto.html">cadastroProduto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="listagemProduto.html">Listagem produto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="ListagemVendas.html">Listagem Vendas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="registroVendas.html">Registrar vendas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="suporte.html">Suporte</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-
+  
 
   <!-- aba de login-->
 
   <div class="container-login">
+    <?php
 
-    <form class="form-login">
+    if (isset($_SESSION['erros'])):
+      $erros = $_SESSION['erros'];
+
+
+    ?>
+
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Erro ao entrar!</h4>
+        <ul>
+          <?php foreach ($erros as $e): ?>
+            <li><?= $e ?></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+
+    <?php endif;
+    unset($_SESSION['erros']); ?>
+
+    <form class="form-login" action="/entrar" method="POST">
 
       <h1 class="titulo-login">Login</h1>
 
       <div class="email-senha-login">
         <label for="email">Email</label>
-        <input type="text" name="" id="email" class="form-control" placeholder="Insira seu e-mail...">
+        <input type="text" name="email" id="email" class="form-control" placeholder="Insira seu e-mail...">
         <label for="senha">Senha</label>
-        <input type="password" name="" id="senha" class="form-control" placeholder="Insira sua senha...">
+        <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira sua senha...">
       </div>
 
       <div class="botao-lembrar-login">

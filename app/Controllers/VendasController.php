@@ -32,7 +32,7 @@ class VendasController
     {
         //chama a Model de produtos e executa a busca no BD
         $vendas = Vendas::buscarTodos();
-        
+
 
         // exibe o arquivo PHP de lista enviando os usuarios do BD para apresentação
         render('/vendas/relatorio-vendas.php', [
@@ -46,9 +46,9 @@ class VendasController
     public function novo()
     {
         //Chamando a função produtos de models
-        $produtos = \App\Models\Produtos::buscarTodos();
-        $usuarios = \App\Models\Usuario::buscarTodos();
-        $vendas = \App\Models\Vendas::buscarTodos();
+        $produtos = Produtos::buscarTodos();
+        $usuarios = Usuario::buscarTodos();
+        $vendas =   Vendas::buscarTodos();
         render('/vendas/form-vendas.php', [
             'title' => 'Formulario vendas - Bookshelf',
             'produtos' => $produtos,

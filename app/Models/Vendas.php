@@ -19,32 +19,7 @@ class Vendas
         $pdo = Database::conectar();
 
         //monta o script SQL de consulta
-        $sql = "SELECT 
-    v.id_usuario,
-    u.nome,
-    v.cpf_vendas,
-    v.data_venda,
-    v.quantidade,
-    p.nome_livro,
-    p.preco,
-    v.created_at
-FROM vendas v
-INNER JOIN produtos p ON v.livro_id = p.id_usuario
-INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
-WHERE v.deleted_at IS NULL";
-        //Retorna o resultado do script SQL
-        return $pdo->query($sql)->fetchALL();
-    }
-
-
-
-    public static function buscarUm($id)
-    {
-
-        //inicia a conexão com o BD
-        $pdo = Database::conectar();
-
-        $sql = "SELECT 
+$sql = "SELECT 
     v.id_usuario,
     u.nome,
     v.cpf_vendas,
@@ -57,6 +32,20 @@ WHERE v.deleted_at IS NULL";
     INNER JOIN produtos p ON v.livro_id = p.id_usuario
     INNER JOIN usuarios u ON v.cliente_id = u.id_usuario
     WHERE v.deleted_at IS NULL";
+
+        //Retorna o resultado do script SQL
+        return $pdo->query($sql)->fetchALL();
+    }
+
+
+
+    public static function buscarUm($id)
+    {
+
+        //inicia a conexão com o BD
+        $pdo = Database::conectar();
+
+        $sql = "SELECT * FROM vendas WHERE deleted_at IS NULL AND id_usuario = :id";
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);

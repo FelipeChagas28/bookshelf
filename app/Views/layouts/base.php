@@ -67,12 +67,14 @@
 
     <br>
 
-    <footer>
+    <!-- <footer>
         <div>
             <h1>Teste</h1>
             <p>Projeto realizado na aula de Programação para Internet.</p>
         </div>
     </footer>
+
+-->
 </body>
 
 </html>
